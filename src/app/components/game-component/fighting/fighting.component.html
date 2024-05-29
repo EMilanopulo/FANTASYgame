@@ -1,0 +1,64 @@
+<div *ngIf="winner == null">
+  <div class="messages-container">
+    <div *ngIf="attackMessage">
+      <h1 class="heading">{{ attackMessage }}</h1>
+    </div>
+  </div>
+
+  <div class="flex-container">
+    <div class="details-container">
+      <img
+        [src]="getImgSrc(firstPlayer)"
+        [ngClass]="{
+          'animation-image': currentTurn === 2,
+          'arciere-class': firstPlayer.personaggio?.nomeClasse == 'Arciere',
+          'mago-class': firstPlayer.personaggio?.nomeClasse == 'Mago'
+        }"
+      />
+      <div class="text-container">
+        <p>
+          {{
+            firstPlayer.username + " - " + firstPlayer.personaggio?.nomeClasse
+          }}
+        </p>
+        <p>
+          Vita residua: <span>{{ firstPlayer.vitaResidua }}</span>
+        </p>
+      </div>
+    </div>
+    <div class="details-container">
+      <img
+        [src]="getImgSrc(secondPlayer)"
+        alt=""
+        [ngClass]="{
+          'animation-image-right': currentTurn === 1,
+          'arciere-class': secondPlayer.personaggio?.nomeClasse == 'Arciere',
+          'mago-class': secondPlayer.personaggio?.nomeClasse == 'Mago'
+        }"
+        class="flip-image"
+      />
+      <div class="text-container">
+        <p>
+          {{
+            secondPlayer.username + " - " + secondPlayer.personaggio?.nomeClasse
+          }}
+        </p>
+        <p>
+          Vita residua: <span>{{ secondPlayer.vitaResidua }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="winner != null" class="winner-container">
+  IL VINCITORE E' {{ winner.username?.toUpperCase() }}
+</div>
+
+<div *ngIf="winner">
+  <h4 class="play-again-title">Iniziare un'altra partita?</h4>
+  <div class="play-again-conatiner">
+    <div><button class="btn-play-again btn-yes" (click)="playAgain(firstPlayer, secondPlayer)">SI</button></div>
+    <div><button class="btn-play-again btn-yes" (click)="endGame()">NO</button></div>
+  </div>
+</div>

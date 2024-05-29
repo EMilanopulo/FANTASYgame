@@ -1,0 +1,94 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  gap: 15%;
+  justify-content: space-between;
+}
+
+.details-container {
+  width: 100%;
+}
+
+.text-container {
+  margin-top: 25px;
+}
+
+.details-container p {
+  text-align: center;
+}
+
+.flip-image {
+  transform: scaleX(-1);
+}
+
+.heading {
+  text-align: center;
+  font-size: 30px;
+}
+
+.animation-image {
+  position: relative;
+  animation-name: left-animation;
+  animation-duration: 2s;
+}
+
+.animation-image-right {
+  position: relative;
+  animation-name: right-animation;
+  animation-duration: 2s;
+}
+
+.messages-container {
+  height: 90px;
+  margin-bottom: 60px;
+}
+
+.arciere-class {
+  width: 320px;
+  height: 428px;
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+.mago-class {
+  width: 300px;
+  height: 460px;
+  margin-top: 13px;
+  margin-bottom: 23px;
+}
+
+.winner-container {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.play-again-conatiner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.btn-play-again {
+  padding: 15px 100px;
+  font-size: 18px;
+}
+
+.play-again-title {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+@keyframes left-animation {
+  0%   {left:0px; top:0px;}
+  25%  {left:200px; top:0px;}
+  100% {left:0px; top:0px;}
+}
+
+@keyframes right-animation {
+  0%   {right:0px; top:0px;}
+  25%  {right:200px; top:0px;}
+  100% {right:0px; top:0px;}
+}
+

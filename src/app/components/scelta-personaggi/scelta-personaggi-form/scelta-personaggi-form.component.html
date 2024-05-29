@@ -1,0 +1,84 @@
+<div class="page-body">
+  <form
+    action="post"
+    [formGroup]="sceltaPersonaggioForm"
+    (submit)="sendDatas()"
+  >
+    <p>Seleziona un nome utente:</p>
+    <input
+      type="text"
+      [placeholder]="isPlayerOneTurn ? firstPlUsername : secondPlUsername"
+      id="username"
+      formControlName="username"
+      (change)="getValue($event)"
+      required
+    />
+
+    <p style="margin-top: 45px">Seleziona un personaggio</p>
+    <div class="flex-container">
+      <div
+        (click)="getPersonaggi('Guerriero')"
+        [ngClass]="{ selected: choosenCharacter.nomeClasse == 'Guerriero' }"
+      >
+        <p class="pers-name">Guerriero</p>
+        <img
+          src="./../../../../assets/img/guerriero.png"
+          width="220"
+          height="240"
+          alt="Guerriero"
+        />
+      </div>
+      <div
+        (click)="getPersonaggi('Arciere')"
+        [ngClass]="{ selected: choosenCharacter.nomeClasse == 'Arciere' }"
+      >
+        <p class="pers-name">Arciere</p>
+        <img
+          src="./../../../../assets/img/arciere.png"
+          width="160"
+          height="210"
+          alt="Arciere"
+        />
+      </div>
+      <div
+        (click)="getPersonaggi('Mago')"
+        [ngClass]="{ selected: choosenCharacter.nomeClasse == 'Mago' }"
+      >
+        <p class="pers-name">Mago</p>
+        <img
+          src="./../../../../assets/img/mago.webp"
+          width="140"
+          height="220"
+          alt="Mago"
+        />
+      </div>
+    </div>
+
+    <p style="margin-top: 45px" *ngIf="isArmiSelectActive">Seleziona un'arma</p>
+    <div class="flex-container-armi" *ngIf="isArmiSelectActive">
+      <div *ngFor="let arma of choosenCharacter.armi; let i = index">
+        <div
+          (click)="selectWeapon(i)"
+          class="wrapper"
+          [ngClass]="{ selected: i === selectedWeaponIndex }"
+        >
+          <p class="pers-name">{{ arma.nomeArma! }}</p>
+          <img
+            [src]="getImagePath(arma.nomeArma!)"
+            alt="{{ arma.nomeArma }}"
+            width="{{ getStyleForImages(arma.nomeArma!, true) }}"
+            height="{{ getStyleForImages(arma.nomeArma!, false) }}"
+          />
+        </div>
+      </div>
+    </div>
+    '
+    <button
+      type="submit"
+      class="btn btn-submit"
+      [disabled]="choosenUsername === '' || !isFormCompleted"
+    >
+      Fatto
+    </button>
+  </form>
+</div>

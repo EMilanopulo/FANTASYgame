@@ -1,0 +1,27 @@
+h1 {
+  font-size: 40px;
+}
+
+.loader-container {
+  display: flex;
+  gap: 8%;
+  margin-top: 17px;
+}
+
+.paragraph {
+  text-align: center;
+  font-size: 27px;
+}
+
+.btn-fight {
+  margin-top: 30px;
+  margin-bottom: 120px;
+  border: 1px solid rgba(19, 76, 9, 0.486);
+  font-size: 20px;
+  width: 100%;
+  background-color: rgba(151, 203, 128, 0.8);
+
+  &:hover {
+    background-color: rgba(100, 126, 89, 0.8);
+  }
+}

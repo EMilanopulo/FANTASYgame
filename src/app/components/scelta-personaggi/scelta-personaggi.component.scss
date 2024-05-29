@@ -1,0 +1,46 @@
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(151, 203, 128, 0.8);
+}
+
+.fit-cont-container {
+  height: 100%;
+}
+
+.full-height-container {
+  height: 100%;
+}
+
+.auto-height-container {
+  height: auto;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  animation-name: headingTransition;
+  animation-duration: 2s;
+}
+
+.svg-container {
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+//ANIMAZIONI
+@keyframes headingTransition {
+  0% {
+    transform: translateY(-200vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0vh);
+    opacity: 1;
+  }
+}

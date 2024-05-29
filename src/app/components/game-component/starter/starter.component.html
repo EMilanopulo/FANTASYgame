@@ -1,0 +1,25 @@
+<div>
+  <h1 *ngIf="!fightIsStarted">Stabiliamo chi inizia a giocare</h1>
+
+  <div *ngIf="showLoader && !fightIsStarted" class="loader-container">
+    <div class="spinner-grow text-primary" role="status"></div>
+    <div class="spinner-grow text-secondary" role="status"></div>
+    <div class="spinner-grow text-success" role="status"></div>
+    <div class="spinner-grow text-danger" role="status"></div>
+    <div class="spinner-grow text-warning" role="status"></div>
+    <div class="spinner-grow text-info" role="status"></div>
+    <div class="spinner-grow text-light" role="status"></div>
+    <div class="spinner-grow text-dark" role="status"></div>
+  </div>
+
+  <div *ngIf="!showLoader && !fightIsStarted">
+    <p class="paragraph">
+      {{ isPlayer1Starting ? firstPlayer.username : secondPlayer.username }}
+    </p>
+    <button class="btn btn-fight" (click)="fight()">COMBATTI</button>
+  </div>
+
+  <div *ngIf="fightIsStarted">
+     <app-fighting [firstPlayer]="firstPlayer" [secondPlayer]="secondPlayer" [isPlayer1Starting]="isPlayer1Starting"></app-fighting>
+  </div>
+</div>
